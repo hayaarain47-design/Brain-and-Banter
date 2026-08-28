@@ -1,183 +1,7 @@
 // ==========================================
 // BRAIN & BANTER
-// COMPLETE QUIZ SYSTEM
+// COMPLETE PORTAL JAVASCRIPT
 // ==========================================
-
-
-// ==========================================
-// LOGIN PAGE
-// ==========================================
-
-const loginForm = document.getElementById("loginForm");
-
-if (loginForm) {
-
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
-    const togglePassword = document.getElementById("togglePassword");
-    const loginMessage = document.getElementById("loginMessage");
-
-
-    if (togglePassword) {
-
-        togglePassword.addEventListener("click", function () {
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                togglePassword.textContent = "Hide";
-            } else {
-                passwordInput.type = "password";
-                togglePassword.textContent = "Show";
-            }
-
-        });
-
-    }
-
-
-    loginForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
-
-
-        if (username === "") {
-            showLoginMessage("Please enter your name.", "error");
-            usernameInput.focus();
-            return;
-        }
-
-
-        if (password === "") {
-            showLoginMessage("Please enter your password.", "error");
-            passwordInput.focus();
-            return;
-        }
-
-
-        if (password.length < 4) {
-            showLoginMessage(
-                "Password must contain at least 4 characters.",
-                "error"
-            );
-            passwordInput.focus();
-            return;
-        }
-
-
-        localStorage.setItem(
-            "brainBanterUser",
-            username
-        );
-
-
-        showLoginMessage(
-            "Login successful. Opening portal...",
-            "success"
-        );
-
-
-        setTimeout(function () {
-            window.location.href = "dashboard.html";
-        }, 800);
-
-    });
-
-
-    function showLoginMessage(message, type) {
-
-        loginMessage.textContent = message;
-
-        loginMessage.style.color =
-            type === "success"
-                ? "#16803c"
-                : "#d14343";
-
-    }
-
-}
-
-
-// ==========================================
-// DASHBOARD
-// ==========================================
-
-const userName = document.getElementById("userName");
-
-if (userName) {
-
-    const savedUser =
-        localStorage.getItem("brainBanterUser");
-
-
-    if (!savedUser) {
-
-        window.location.href = "index.html";
-
-    } else {
-
-        userName.textContent = savedUser;
-
-    }
-
-}
-
-
-// ==========================================
-// SUBJECT SELECTION
-// ==========================================
-
-const subjectCards =
-    document.querySelectorAll(".subject-card");
-
-
-if (subjectCards.length > 0) {
-
-    subjectCards.forEach(function (card) {
-
-        card.addEventListener("click", function () {
-
-            const subject =
-                card.getAttribute("data-subject");
-
-
-            localStorage.setItem(
-                "selectedSubject",
-                subject
-            );
-
-
-            window.location.href = "quiz.html";
-
-        });
-
-    });
-
-}
-
-
-// ==========================================
-// LOGOUT
-// ==========================================
-
-const logoutButton =
-    document.getElementById("logoutButton");
-
-
-if (logoutButton) {
-
-    logoutButton.addEventListener("click", function () {
-
-        localStorage.removeItem("brainBanterUser");
-        localStorage.removeItem("selectedSubject");
-
-        window.location.href = "index.html";
-
-    });
-
-}
 
 
 // ==========================================
@@ -187,352 +11,168 @@ if (logoutButton) {
 const quizData = {
 
     Biology: [
-
         {
             question: "What is the basic unit of life?",
-            options: [
-                "Atom",
-                "Cell",
-                "Tissue",
-                "Organ"
-            ],
+            options: ["Atom", "Cell", "Tissue", "Organ"],
             answer: 1
         },
-
         {
             question: "Which organ pumps blood around the body?",
-            options: [
-                "Lungs",
-                "Brain",
-                "Heart",
-                "Kidney"
-            ],
+            options: ["Lungs", "Brain", "Heart", "Kidney"],
             answer: 2
         },
-
         {
             question: "Which gas do humans mainly need for respiration?",
-            options: [
-                "Oxygen",
-                "Nitrogen",
-                "Carbon dioxide",
-                "Hydrogen"
-            ],
+            options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
             answer: 0
         },
-
         {
             question: "Which part of a plant absorbs water?",
-            options: [
-                "Flower",
-                "Leaf",
-                "Root",
-                "Fruit"
-            ],
+            options: ["Flower", "Leaf", "Root", "Fruit"],
             answer: 2
         },
-
         {
             question: "Which blood cells help fight infections?",
-            options: [
-                "Red blood cells",
-                "White blood cells",
-                "Platelets",
-                "Plasma"
-            ],
+            options: ["Red blood cells", "White blood cells", "Platelets", "Plasma"],
             answer: 1
         },
-
         {
             question: "What carries genetic information?",
-            options: [
-                "DNA",
-                "Water",
-                "Glucose",
-                "Protein"
-            ],
+            options: ["DNA", "Water", "Glucose", "Protein"],
             answer: 0
         },
-
         {
             question: "Which organ is mainly responsible for breathing?",
-            options: [
-                "Heart",
-                "Lungs",
-                "Stomach",
-                "Liver"
-            ],
+            options: ["Heart", "Lungs", "Stomach", "Liver"],
             answer: 1
         },
-
         {
             question: "Photosynthesis mainly occurs in which part of a plant?",
-            options: [
-                "Leaves",
-                "Roots",
-                "Seeds",
-                "Flowers"
-            ],
+            options: ["Leaves", "Roots", "Seeds", "Flowers"],
             answer: 0
         },
-
         {
             question: "Which organ helps digest food?",
-            options: [
-                "Stomach",
-                "Heart",
-                "Lung",
-                "Brain"
-            ],
+            options: ["Stomach", "Heart", "Lung", "Brain"],
             answer: 0
         },
-
         {
             question: "How many chambers does the human heart have?",
-            options: [
-                "2",
-                "3",
-                "4",
-                "5"
-            ],
+            options: ["2", "3", "4", "5"],
             answer: 2
         }
-
     ],
 
 
     Physics: [
-
         {
             question: "What is the SI unit of force?",
-            options: [
-                "Joule",
-                "Newton",
-                "Watt",
-                "Pascal"
-            ],
+            options: ["Joule", "Newton", "Watt", "Pascal"],
             answer: 1
         },
-
         {
             question: "What force pulls objects toward Earth?",
-            options: [
-                "Friction",
-                "Magnetism",
-                "Gravity",
-                "Tension"
-            ],
+            options: ["Friction", "Magnetism", "Gravity", "Tension"],
             answer: 2
         },
-
         {
             question: "What is the unit of electric current?",
-            options: [
-                "Volt",
-                "Ohm",
-                "Ampere",
-                "Watt"
-            ],
+            options: ["Volt", "Ohm", "Ampere", "Watt"],
             answer: 2
         },
-
         {
             question: "Light travels fastest in:",
-            options: [
-                "Water",
-                "Glass",
-                "Air",
-                "Vacuum"
-            ],
+            options: ["Water", "Glass", "Air", "Vacuum"],
             answer: 3
         },
-
         {
             question: "What is the SI unit of energy?",
-            options: [
-                "Newton",
-                "Joule",
-                "Watt",
-                "Volt"
-            ],
+            options: ["Newton", "Joule", "Watt", "Volt"],
             answer: 1
         },
-
         {
             question: "Which instrument measures temperature?",
-            options: [
-                "Barometer",
-                "Thermometer",
-                "Ammeter",
-                "Voltmeter"
-            ],
+            options: ["Barometer", "Thermometer", "Ammeter", "Voltmeter"],
             answer: 1
         },
-
         {
             question: "Which form of energy is stored in a battery?",
-            options: [
-                "Chemical energy",
-                "Sound energy",
-                "Light energy",
-                "Nuclear energy"
-            ],
+            options: ["Chemical energy", "Sound energy", "Light energy", "Nuclear energy"],
             answer: 0
         },
-
         {
             question: "What is the unit of power?",
-            options: [
-                "Watt",
-                "Joule",
-                "Newton",
-                "Meter"
-            ],
+            options: ["Watt", "Joule", "Newton", "Meter"],
             answer: 0
         },
-
         {
             question: "Which force opposes motion between surfaces?",
-            options: [
-                "Gravity",
-                "Friction",
-                "Magnetic force",
-                "Buoyant force"
-            ],
+            options: ["Gravity", "Friction", "Magnetic force", "Buoyant force"],
             answer: 1
         },
-
         {
             question: "What is the approximate speed of light in vacuum?",
-            options: [
-                "3 × 10⁸ m/s",
-                "3 × 10⁶ m/s",
-                "3 × 10⁴ m/s",
-                "3 × 10² m/s"
-            ],
+            options: ["3 × 10⁸ m/s", "3 × 10⁶ m/s", "3 × 10⁴ m/s", "3 × 10² m/s"],
             answer: 0
         }
-
     ],
 
 
     Mathematics: [
-
         {
             question: "What is 12 × 8?",
-            options: [
-                "86",
-                "96",
-                "108",
-                "112"
-            ],
+            options: ["86", "96", "108", "112"],
             answer: 1
         },
-
         {
             question: "What is the square root of 81?",
-            options: [
-                "7",
-                "8",
-                "9",
-                "10"
-            ],
+            options: ["7", "8", "9", "10"],
             answer: 2
         },
-
         {
             question: "What is 15% of 200?",
-            options: [
-                "20",
-                "25",
-                "30",
-                "35"
-            ],
+            options: ["20", "25", "30", "35"],
             answer: 2
         },
-
         {
             question: "What is the value of 5²?",
-            options: [
-                "10",
-                "15",
-                "20",
-                "25"
-            ],
+            options: ["10", "15", "20", "25"],
             answer: 3
         },
-
         {
             question: "Which number is prime?",
-            options: [
-                "9",
-                "15",
-                "17",
-                "21"
-            ],
+            options: ["9", "15", "17", "21"],
             answer: 2
         },
-
         {
             question: "What is 100 ÷ 4?",
-            options: [
-                "20",
-                "25",
-                "30",
-                "40"
-            ],
+            options: ["20", "25", "30", "40"],
             answer: 1
         },
-
         {
             question: "What is 7 + 8 × 2?",
-            options: [
-                "30",
-                "23",
-                "22",
-                "24"
-            ],
+            options: ["30", "23", "22", "24"],
             answer: 1
         },
-
         {
             question: "How many degrees are in a right angle?",
-            options: [
-                "45°",
-                "90°",
-                "180°",
-                "360°"
-            ],
+            options: ["45°", "90°", "180°", "360°"],
             answer: 1
         },
-
         {
             question: "What is the perimeter of a square with side 5 cm?",
-            options: [
-                "10 cm",
-                "15 cm",
-                "20 cm",
-                "25 cm"
-            ],
+            options: ["10 cm", "15 cm", "20 cm", "25 cm"],
             answer: 2
         },
-
         {
             question: "What is 3/4 as a decimal?",
-            options: [
-                "0.25",
-                "0.50",
-                "0.75",
-                "1.25"
-            ],
+            options: ["0.25", "0.50", "0.75", "1.25"],
             answer: 2
         }
-
     ],
 
 
     Computer: [
-
         {
             question: "What does CPU stand for?",
             options: [
@@ -543,29 +183,16 @@ const quizData = {
             ],
             answer: 0
         },
-
         {
             question: "Which language is used to structure web pages?",
-            options: [
-                "Python",
-                "HTML",
-                "C++",
-                "SQL"
-            ],
+            options: ["Python", "HTML", "C++", "SQL"],
             answer: 1
         },
-
         {
             question: "Which device is used to point and click?",
-            options: [
-                "Keyboard",
-                "Monitor",
-                "Mouse",
-                "Printer"
-            ],
+            options: ["Keyboard", "Monitor", "Mouse", "Printer"],
             answer: 2
         },
-
         {
             question: "What does RAM stand for?",
             options: [
@@ -576,29 +203,16 @@ const quizData = {
             ],
             answer: 0
         },
-
         {
             question: "Which one is an operating system?",
-            options: [
-                "Windows",
-                "Chrome",
-                "Google",
-                "HTML"
-            ],
+            options: ["Windows", "Chrome", "Google", "HTML"],
             answer: 0
         },
-
         {
             question: "Which symbol starts a comment in Python?",
-            options: [
-                "//",
-                "#",
-                "/*",
-                "--"
-            ],
+            options: ["//", "#", "/*", "--"],
             answer: 1
         },
-
         {
             question: "What does URL stand for?",
             options: [
@@ -609,56 +223,30 @@ const quizData = {
             ],
             answer: 0
         },
-
         {
             question: "Which device displays visual output?",
-            options: [
-                "Scanner",
-                "Keyboard",
-                "Monitor",
-                "Microphone"
-            ],
+            options: ["Scanner", "Keyboard", "Monitor", "Microphone"],
             answer: 2
         },
-
         {
             question: "Which of these is a programming language?",
-            options: [
-                "Python",
-                "Google",
-                "Windows",
-                "Wi-Fi"
-            ],
+            options: ["Python", "Google", "Windows", "Wi-Fi"],
             answer: 0
         },
-
         {
             question: "What is used to store files permanently?",
-            options: [
-                "RAM",
-                "Hard drive",
-                "Cache",
-                "CPU"
-            ],
+            options: ["RAM", "Hard drive", "Cache", "CPU"],
             answer: 1
         }
-
     ],
 
 
     "General Knowledge": [
-
         {
             question: "What is the capital of Pakistan?",
-            options: [
-                "Lahore",
-                "Karachi",
-                "Islamabad",
-                "Peshawar"
-            ],
+            options: ["Lahore", "Karachi", "Islamabad", "Peshawar"],
             answer: 2
         },
-
         {
             question: "Which is the largest ocean?",
             options: [
@@ -669,73 +257,36 @@ const quizData = {
             ],
             answer: 2
         },
-
         {
             question: "How many continents are there?",
-            options: [
-                "5",
-                "6",
-                "7",
-                "8"
-            ],
+            options: ["5", "6", "7", "8"],
             answer: 2
         },
-
         {
             question: "Which planet is known as the Red Planet?",
-            options: [
-                "Venus",
-                "Mars",
-                "Jupiter",
-                "Mercury"
-            ],
+            options: ["Venus", "Mars", "Jupiter", "Mercury"],
             answer: 1
         },
-
         {
             question: "Which is the largest planet in our solar system?",
-            options: [
-                "Earth",
-                "Saturn",
-                "Jupiter",
-                "Neptune"
-            ],
+            options: ["Earth", "Saturn", "Jupiter", "Neptune"],
             answer: 2
         },
-
         {
             question: "How many days are there in a leap year?",
-            options: [
-                "365",
-                "366",
-                "364",
-                "360"
-            ],
+            options: ["365", "366", "364", "360"],
             answer: 1
         },
-
         {
             question: "Which country is famous for the Eiffel Tower?",
-            options: [
-                "Italy",
-                "France",
-                "Spain",
-                "Germany"
-            ],
+            options: ["Italy", "France", "Spain", "Germany"],
             answer: 1
         },
-
         {
             question: "What is the currency of Japan?",
-            options: [
-                "Won",
-                "Yuan",
-                "Yen",
-                "Ringgit"
-            ],
+            options: ["Won", "Yuan", "Yen", "Ringgit"],
             answer: 2
         },
-
         {
             question: "Which gas makes up most of Earth's atmosphere?",
             options: [
@@ -746,21 +297,257 @@ const quizData = {
             ],
             answer: 1
         },
-
         {
             question: "How many hours are there in one day?",
-            options: [
-                "12",
-                "18",
-                "24",
-                "48"
-            ],
+            options: ["12", "18", "24", "48"],
             answer: 2
         }
-
     ]
 
 };
+
+
+// ==========================================
+// LOGIN
+// ==========================================
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+
+    const usernameInput =
+        document.getElementById("username");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+
+    togglePassword.addEventListener("click", function () {
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+            togglePassword.textContent = "Hide";
+
+        } else {
+
+            passwordInput.type = "password";
+            togglePassword.textContent = "Show";
+
+        }
+
+    });
+
+
+    loginForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const username =
+            usernameInput.value.trim();
+
+        const password =
+            passwordInput.value.trim();
+
+
+        if (!username) {
+
+            loginMessage.textContent =
+                "Please enter your name.";
+
+            loginMessage.style.color =
+                "#d14343";
+
+            return;
+
+        }
+
+
+        if (!password) {
+
+            loginMessage.textContent =
+                "Please enter your password.";
+
+            loginMessage.style.color =
+                "#d14343";
+
+            return;
+
+        }
+
+
+        if (password.length < 4) {
+
+            loginMessage.textContent =
+                "Password must contain at least 4 characters.";
+
+            loginMessage.style.color =
+                "#d14343";
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            "brainBanterUser",
+            username
+        );
+
+
+        loginMessage.textContent =
+            "Login successful. Opening portal...";
+
+        loginMessage.style.color =
+            "#16803c";
+
+
+        setTimeout(function () {
+
+            window.location.href =
+                "dashboard.html";
+
+        }, 700);
+
+    });
+
+}
+
+
+// ==========================================
+// DASHBOARD
+// ==========================================
+
+const userName =
+    document.getElementById("userName");
+
+
+if (userName) {
+
+    const savedUser =
+        localStorage.getItem(
+            "brainBanterUser"
+        );
+
+
+    if (!savedUser) {
+
+        window.location.href =
+            "index.html";
+
+    } else {
+
+        userName.textContent =
+            savedUser;
+
+    }
+
+}
+
+
+// ==========================================
+// SUBJECT CARDS
+// ==========================================
+
+const subjectCards =
+    document.querySelectorAll(
+        ".subject-card"
+    );
+
+
+subjectCards.forEach(function (card) {
+
+    card.addEventListener(
+        "click",
+        function () {
+
+            const subject =
+                card.dataset.subject;
+
+
+            localStorage.setItem(
+                "selectedSubject",
+                subject
+            );
+
+
+            window.location.href =
+                "quiz.html";
+
+        }
+    );
+
+});
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+const resultLogout =
+    document.getElementById(
+        "resultLogout"
+    );
+
+
+function logoutUser() {
+
+    localStorage.removeItem(
+        "brainBanterUser"
+    );
+
+    localStorage.removeItem(
+        "selectedSubject"
+    );
+
+    localStorage.removeItem(
+        "quizScore"
+    );
+
+    localStorage.removeItem(
+        "quizTotal"
+    );
+
+    localStorage.removeItem(
+        "quizPercentage"
+    );
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+if (logoutButton) {
+
+    logoutButton.addEventListener(
+        "click",
+        logoutUser
+    );
+
+}
+
+
+if (resultLogout) {
+
+    resultLogout.addEventListener(
+        "click",
+        logoutUser
+    );
+
+}
 
 
 // ==========================================
@@ -781,35 +568,54 @@ let currentSubject = "";
 
 
 // ==========================================
-// START QUIZ
+// QUIZ START
 // ==========================================
 
 const questionText =
-    document.getElementById("questionText");
+    document.getElementById(
+        "questionText"
+    );
 
 
 if (questionText) {
 
+    const savedUser =
+        localStorage.getItem(
+            "brainBanterUser"
+        );
+
+
     currentSubject =
-        localStorage.getItem("selectedSubject");
+        localStorage.getItem(
+            "selectedSubject"
+        );
 
 
-    if (!currentSubject || !quizData[currentSubject]) {
+    if (
+        !savedUser ||
+        !currentSubject ||
+        !quizData[currentSubject]
+    ) {
 
-        window.location.href = "dashboard.html";
+        window.location.href =
+            "dashboard.html";
 
     } else {
 
         currentQuestions =
             quizData[currentSubject];
 
+
         selectedAnswers =
-            new Array(currentQuestions.length).fill(null);
+            new Array(
+                currentQuestions.length
+            ).fill(null);
 
 
         document.getElementById(
             "quizSubject"
-        ).textContent = currentSubject;
+        ).textContent =
+            currentSubject;
 
 
         document.getElementById(
@@ -834,7 +640,9 @@ if (questionText) {
 function loadQuestion() {
 
     const question =
-        currentQuestions[currentQuestionIndex];
+        currentQuestions[
+            currentQuestionIndex
+        ];
 
 
     document.getElementById(
@@ -846,8 +654,9 @@ function loadQuestion() {
     document.getElementById(
         "questionNumber"
     ).textContent =
-        String(currentQuestionIndex + 1)
-        .padStart(2, "0");
+        String(
+            currentQuestionIndex + 1
+        ).padStart(2, "0");
 
 
     document.getElementById(
@@ -858,8 +667,10 @@ function loadQuestion() {
 
     const percentage =
         Math.round(
-            ((currentQuestionIndex + 1) /
-                currentQuestions.length) * 100
+            (
+                (currentQuestionIndex + 1) /
+                currentQuestions.length
+            ) * 100
         );
 
 
@@ -887,29 +698,32 @@ function loadQuestion() {
     question.options.forEach(
         function (option, index) {
 
-            const optionButton =
-                document.createElement("button");
+            const button =
+                document.createElement(
+                    "button"
+                );
 
 
-            optionButton.type = "button";
+            button.type = "button";
 
-            optionButton.className =
+            button.className =
                 "quiz-option";
 
 
             if (
-                selectedAnswers[currentQuestionIndex]
-                === index
+                selectedAnswers[
+                    currentQuestionIndex
+                ] === index
             ) {
 
-                optionButton.classList.add(
+                button.classList.add(
                     "selected"
                 );
 
             }
 
 
-            optionButton.innerHTML = `
+            button.innerHTML = `
                 <span class="option-letter">
                     ${String.fromCharCode(65 + index)}
                 </span>
@@ -920,72 +734,61 @@ function loadQuestion() {
             `;
 
 
-            optionButton.addEventListener(
+            button.addEventListener(
                 "click",
                 function () {
 
-                    selectAnswer(index);
+                    selectedAnswers[
+                        currentQuestionIndex
+                    ] = index;
+
+                    loadQuestion();
 
                 }
             );
 
 
             optionsContainer.appendChild(
-                optionButton
+                button
             );
 
         }
     );
 
 
-    document.getElementById(
-        "previousButton"
-    ).disabled =
+    const previousButton =
+        document.getElementById(
+            "previousButton"
+        );
+
+
+    previousButton.disabled =
         currentQuestionIndex === 0;
 
 
     const nextButton =
-        document.getElementById("nextButton");
+        document.getElementById(
+            "nextButton"
+        );
 
 
-    if (
+    nextButton.textContent =
         currentQuestionIndex ===
         currentQuestions.length - 1
-    ) {
-
-        nextButton.textContent =
-            "Finish Quiz";
-
-    } else {
-
-        nextButton.textContent =
-            "Next →";
-
-    }
+            ? "Finish Quiz"
+            : "Next →";
 
 }
 
 
 // ==========================================
-// SELECT ANSWER
-// ==========================================
-
-function selectAnswer(index) {
-
-    selectedAnswers[currentQuestionIndex] =
-        index;
-
-    loadQuestion();
-
-}
-
-
-// ==========================================
-// NEXT BUTTON
+// NEXT
 // ==========================================
 
 const nextButton =
-    document.getElementById("nextButton");
+    document.getElementById(
+        "nextButton"
+    );
 
 
 if (nextButton) {
@@ -995,8 +798,9 @@ if (nextButton) {
         function () {
 
             if (
-                selectedAnswers[currentQuestionIndex]
-                === null
+                selectedAnswers[
+                    currentQuestionIndex
+                ] === null
             ) {
 
                 alert(
@@ -1030,7 +834,7 @@ if (nextButton) {
 
 
 // ==========================================
-// PREVIOUS BUTTON
+// PREVIOUS
 // ==========================================
 
 const previousButton =
@@ -1045,7 +849,9 @@ if (previousButton) {
         "click",
         function () {
 
-            if (currentQuestionIndex > 0) {
+            if (
+                currentQuestionIndex > 0
+            ) {
 
                 currentQuestionIndex--;
 
@@ -1074,7 +880,6 @@ function startTimer() {
 
                 timeLeft--;
 
-
                 updateTimerDisplay();
 
 
@@ -1098,14 +903,18 @@ function startTimer() {
 function updateTimerDisplay() {
 
     const timer =
-        document.getElementById("timer");
+        document.getElementById(
+            "timer"
+        );
 
 
     if (!timer) return;
 
 
     const minutes =
-        Math.floor(timeLeft / 60);
+        Math.floor(
+            timeLeft / 60
+        );
 
 
     const seconds =
@@ -1120,7 +929,9 @@ function updateTimerDisplay() {
 
     if (timeLeft <= 30) {
 
-        timer.style.color = "#d14343";
+        timer.classList.add(
+            "timer-warning"
+        );
 
     }
 
@@ -1133,7 +944,9 @@ function updateTimerDisplay() {
 
 function finishQuiz() {
 
-    clearInterval(timerInterval);
+    clearInterval(
+        timerInterval
+    );
 
 
     let score = 0;
@@ -1143,8 +956,8 @@ function finishQuiz() {
         function (question, index) {
 
             if (
-                selectedAnswers[index]
-                === question.answer
+                selectedAnswers[index] ===
+                question.answer
             ) {
 
                 score++;
@@ -1185,7 +998,9 @@ function finishQuiz() {
 
     localStorage.setItem(
         "quizAnswers",
-        JSON.stringify(selectedAnswers)
+        JSON.stringify(
+            selectedAnswers
+        )
     );
 
 
@@ -1196,7 +1011,184 @@ function finishQuiz() {
 
 
 // ==========================================
-// BACK TO DASHBOARD
+// RESULT PAGE
+// ==========================================
+
+const scoreElement =
+    document.getElementById("score");
+
+
+if (scoreElement) {
+
+    const savedUser =
+        localStorage.getItem(
+            "brainBanterUser"
+        );
+
+    const subject =
+        localStorage.getItem(
+            "selectedSubject"
+        );
+
+    const score =
+        Number(
+            localStorage.getItem(
+                "quizScore"
+            )
+        ) || 0;
+
+    const total =
+        Number(
+            localStorage.getItem(
+                "quizTotal"
+            )
+        ) || 10;
+
+    const percentage =
+        Number(
+            localStorage.getItem(
+                "quizPercentage"
+            )
+        ) || 0;
+
+
+    document.getElementById(
+        "resultUser"
+    ).textContent =
+        savedUser || "Explorer";
+
+
+    document.getElementById(
+        "resultSubject"
+    ).textContent =
+        subject || "Quiz";
+
+
+    document.getElementById(
+        "score"
+    ).textContent =
+        score;
+
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "percentage"
+    ).textContent =
+        percentage + "%";
+
+
+    document.getElementById(
+        "percentageFill"
+    ).style.width =
+        percentage + "%";
+
+
+    document.getElementById(
+        "correctAnswers"
+    ).textContent =
+        score;
+
+
+    document.getElementById(
+        "wrongAnswers"
+    ).textContent =
+        total - score;
+
+
+    document.getElementById(
+        "attemptedAnswers"
+    ).textContent =
+        total;
+
+
+    const performanceMessage =
+        document.getElementById(
+            "performanceMessage"
+        );
+
+
+    if (percentage >= 90) {
+
+        performanceMessage.textContent =
+            "Excellent work! Your knowledge is impressive.";
+
+    } else if (percentage >= 70) {
+
+        performanceMessage.textContent =
+            "Great job! You have a strong understanding.";
+
+    } else if (percentage >= 50) {
+
+        performanceMessage.textContent =
+            "Good effort! Keep practicing to improve.";
+
+    } else {
+
+        performanceMessage.textContent =
+            "Keep learning and try the quiz again.";
+
+    }
+
+}
+
+
+// ==========================================
+// RETRY QUIZ
+// ==========================================
+
+const retryQuiz =
+    document.getElementById(
+        "retryQuiz"
+    );
+
+
+if (retryQuiz) {
+
+    retryQuiz.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "quiz.html";
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// RESULT → DASHBOARD
+// ==========================================
+
+const resultDashboard =
+    document.getElementById(
+        "resultDashboard"
+    );
+
+
+if (resultDashboard) {
+
+    resultDashboard.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "dashboard.html";
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// QUIZ → DASHBOARD
 // ==========================================
 
 const backToDashboard =
@@ -1211,7 +1203,9 @@ if (backToDashboard) {
         "click",
         function () {
 
-            clearInterval(timerInterval);
+            clearInterval(
+                timerInterval
+            );
 
             window.location.href =
                 "dashboard.html";
@@ -1227,7 +1221,9 @@ if (backToDashboard) {
 // ==========================================
 
 const exitQuiz =
-    document.getElementById("exitQuiz");
+    document.getElementById(
+        "exitQuiz"
+    );
 
 
 if (exitQuiz) {
@@ -1236,15 +1232,17 @@ if (exitQuiz) {
         "click",
         function () {
 
-            const confirmExit =
+            const confirmed =
                 confirm(
                     "Are you sure you want to exit the quiz?"
                 );
 
 
-            if (confirmExit) {
+            if (confirmed) {
 
-                clearInterval(timerInterval);
+                clearInterval(
+                    timerInterval
+                );
 
                 window.location.href =
                     "dashboard.html";
