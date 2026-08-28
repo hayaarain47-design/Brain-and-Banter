@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brain & Banter | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-page">
+
+        <!-- TOP NAVIGATION -->
+
+        <header class="topbar">
+
+            <div class="brand-small">
+
+                <div class="mini-logo">
+                    B<span>&</span>B
+                </div>
+
+                <div>
+                    <strong>Brain & Banter</strong>
+                    <small>Quiz Portal</small>
+                </div>
+
+            </div>
+
+
+            <button id="logoutButton" class="logout-button">
+                Logout
+            </button>
+
+        </header>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="dashboard-main">
+
+            <!-- WELCOME -->
+
+            <section class="welcome-banner">
+
+                <div>
+
+                    <p class="eyebrow">
+                        YOUR LEARNING SPACE
+                    </p>
+
+                    <h1>
+                        Welcome, <span id="userName">Explorer</span>
+                    </h1>
+
+                    <p class="welcome-text">
+                        Challenge yourself, test your knowledge,
+                        and discover how much you know.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-icon">
+                    <span>?</span>
+                </div>
+
+            </section>
+
+
+            <!-- STATS -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        05
+                    </div>
+
+                    <div>
+                        <strong>Subjects</strong>
+                        <span>Available</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        10
+                    </div>
+
+                    <div>
+                        <strong>Questions</strong>
+                        <span>Per Quiz</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        %
+                    </div>
+
+                    <div>
+                        <strong>Track</strong>
+                        <span>Your Progress</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBJECTS -->
+
+            <section class="subjects-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            EXPLORE
+                        </p>
+
+                        <h2>
+                            Choose Your Challenge
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Select a subject to begin
+                    </p>
+
+                </div>
+
+
+                <div class="subjects-grid">
+
+                    <!-- BIOLOGY -->
+
+                    <button
+                        class="subject-card"
+                        data-subject="Biology"
+                    >
+
+                        <div class="subject-number">
+                            01
+                        </div>
+
+                        <div class="subject-symbol">
+                            DNA
+                        </div>
+
+                        <h3>
+                            Biology
+                        </h3>
+
+                        <p>
+                            Cells, life, human body
+                            and living organisms.
+                        </p>
+
+                        <span class="start-link">
+                            Start Quiz →
+                        </span>
+
+                    </button>
+
+
+                    <!-- PHYSICS -->
+
+                    <button
+                        class="subject-card"
+                        data-subject="Physics"
+                    >
+
+                        <div class="subject-number">
+                            02
+                        </div>
+
+                        <div class="subject-symbol">
+                            ∑
+                        </div>
+
+                        <h3>
+                            Physics
+                        </h3>
+
+                        <p>
+                            Motion, force, energy
+                            and the physical world.
+                        </p>
+
+                        <span class="start-link">
+                            Start Quiz →
+                        </span>
+
+                    </button>
+
+
+                    <!-- MATHEMATICS -->
+
+                    <button
+                        class="subject-card"
+                        data-subject="Mathematics"
+                    >
+
+                        <div class="subject-number">
+                            03
+                        </div>
+
+                        <div class="subject-symbol">
+                            π
+                        </div>
+
+                        <h3>
+                            Mathematics
+                        </h3>
+
+                        <p>
+                            Numbers, equations,
+                            logic and problem solving.
+                        </p>
+
+                        <span class="start-link">
+                            Start Quiz →
+                        </span>
+
+                    </button>
+
+
+                    <!-- COMPUTER -->
+
+                    <button
+                        class="subject-card"
+                        data-subject="Computer"
+                    >
+
+                        <div class="subject-number">
+                            04
+                        </div>
+
+                        <div class="subject-symbol">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3>
+                            Computer
+                        </h3>
+
+                        <p>
+                            Programming, technology,
+                            networks and computing.
+                        </p>
+
+                        <span class="start-link">
+                            Start Quiz →
+                        </span>
+
+                    </button>
+
+
+                    <!-- GENERAL KNOWLEDGE -->
+
+                    <button
+                        class="subject-card"
+                        data-subject="General Knowledge"
+                    >
+
+                        <div class="subject-number">
+                            05
+                        </div>
+
+                        <div class="subject-symbol">
+                            ?
+                        </div>
+
+                        <h3>
+                            General Knowledge
+                        </h3>
+
+                        <p>
+                            World facts, science,
+                            history and everyday knowledge.
+                        </p>
+
+                        <span class="start-link">
+                            Start Quiz →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            Brain & Banter
+            <span>•</span>
+            Learn something new every day.
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
