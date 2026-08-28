@@ -1565,3 +1565,149 @@ body {
     }
 
 }
+/* ==========================================
+   LEADERBOARD
+========================================== */
+
+.leaderboard-container {
+    background: white;
+
+    border: 1px solid #e1e8f1;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(31, 55, 82, 0.06);
+}
+
+.leaderboard-header,
+.leaderboard-row {
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr 130px 150px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 22px;
+}
+
+.leaderboard-header {
+    background: #f5f8fc;
+
+    color: #7d8a9c;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+.leaderboard-row {
+    border-top: 1px solid #edf1f6;
+
+    font-size: 12px;
+
+    transition: 0.2s ease;
+}
+
+.leaderboard-row:hover {
+    background: #f8fbff;
+}
+
+.leaderboard-rank {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #edf4ff;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.leaderboard-name {
+    font-weight: 700;
+}
+
+.leaderboard-score {
+    color: #52647d;
+
+    font-weight: 600;
+}
+
+.leaderboard-percentage {
+    color: #2563eb;
+
+    font-weight: 800;
+}
+
+.empty-leaderboard {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: #8997a9;
+
+    font-size: 12px;
+}
+
+.current-user-row {
+    background: #f4f8ff;
+}
+
+
+/* MOBILE LEADERBOARD */
+
+@media (max-width: 650px) {
+
+    .leaderboard-header,
+    .leaderboard-row {
+
+        grid-template-columns:
+            45px 1fr 80px 85px;
+
+        gap: 7px;
+
+        padding: 15px 12px;
+
+    }
+
+    .leaderboard-header {
+        font-size: 8px;
+    }
+
+    .leaderboard-row {
+        font-size: 10px;
+    }
+
+    .leaderboard-rank {
+        width: 27px;
+        height: 27px;
+
+        font-size: 9px;
+    }
+
+    .leaderboard-score,
+    .leaderboard-percentage {
+        font-size: 9px;
+    }
+
+}
