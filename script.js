@@ -1442,3 +1442,26 @@ if (leaderboardList) {
 
 }
 }
+// ==========================================
+// DASHBOARD → LEADERBOARD
+// ==========================================
+
+const leaderboardButton =
+    document.getElementById(
+        "leaderboardButton"
+    );
+
+
+if (leaderboardButton) {
+
+    leaderboardButton.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "leaderboard.html";
+
+        }
+    );
+
+}
