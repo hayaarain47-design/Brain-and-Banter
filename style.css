@@ -1,0 +1,661 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #2563eb;
+    --dark-blue: #173b75;
+    --light-blue: #eaf2ff;
+    --text: #17233c;
+    --muted: #718096;
+    --white: #ffffff;
+    --border: #dce5f2;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background: #edf2f7;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.13), transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(96, 165, 250, 0.15), transparent 32%),
+        linear-gradient(135deg, #f5f8fc 0%, #e8eef7 100%);
+}
+
+
+/* Decorative grid */
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px);
+
+    background-size: 45px 45px;
+}
+
+
+/* =========================
+   FLOATING SHAPES
+========================= */
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.55;
+}
+
+.shape-one {
+    width: 360px;
+    height: 360px;
+    top: -180px;
+    left: -120px;
+    background: rgba(59, 130, 246, 0.10);
+    animation: floatOne 12s ease-in-out infinite;
+}
+
+.shape-two {
+    width: 300px;
+    height: 300px;
+    right: -120px;
+    top: 18%;
+    background: rgba(96, 165, 250, 0.11);
+    animation: floatTwo 14s ease-in-out infinite;
+}
+
+.shape-three {
+    width: 420px;
+    height: 420px;
+    bottom: -250px;
+    left: 25%;
+    background: rgba(147, 197, 253, 0.12);
+    animation: floatThree 16s ease-in-out infinite;
+}
+
+
+/* =========================
+   SCIENCE SYMBOLS
+========================= */
+
+.floating-symbol {
+    position: absolute;
+    color: rgba(37, 99, 235, 0.16);
+    font-weight: 700;
+    user-select: none;
+    animation: symbolFloat 8s ease-in-out infinite;
+}
+
+.symbol-one {
+    top: 14%;
+    left: 12%;
+    font-size: 34px;
+}
+
+.symbol-two {
+    top: 72%;
+    left: 10%;
+    font-size: 42px;
+    animation-delay: 1s;
+}
+
+.symbol-three {
+    top: 18%;
+    right: 12%;
+    font-size: 38px;
+    animation-delay: 2s;
+}
+
+.symbol-four {
+    bottom: 15%;
+    right: 14%;
+    font-size: 45px;
+    animation-delay: 3s;
+}
+
+.symbol-five {
+    top: 48%;
+    left: 5%;
+    font-size: 32px;
+    animation-delay: 1.5s;
+}
+
+.symbol-six {
+    bottom: 30%;
+    right: 6%;
+    font-size: 20px;
+    letter-spacing: 3px;
+    animation-delay: 2.5s;
+}
+
+
+/* =========================
+   LOGIN CONTAINER
+========================= */
+
+.login-container {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-card {
+    width: 100%;
+    max-width: 455px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 26px;
+
+    padding: 42px 42px 30px;
+
+    box-shadow:
+        0 25px 70px rgba(32, 56, 85, 0.13),
+        0 5px 18px rgba(32, 56, 85, 0.05);
+
+    backdrop-filter: blur(15px);
+
+    animation: cardAppear 0.8s ease forwards;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-area {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.logo {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        145deg,
+        #2563eb,
+        #173b75
+    );
+
+    color: white;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.27);
+}
+
+.logo span {
+    color: #bfdbfe;
+    margin: 0 2px;
+}
+
+.logo-area h1 {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.tagline {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+    margin-bottom: 27px;
+}
+
+.welcome h2 {
+    font-size: 23px;
+    font-weight: 750;
+    margin-bottom: 7px;
+}
+
+.welcome p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+
+    color: #7390b7;
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+.input-box input {
+    width: 100%;
+    height: 52px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    padding: 0 76px 0 43px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.input-box input::placeholder {
+    color: #9aa8ba;
+}
+
+.input-box input:focus {
+    border-color: #6d9ff5;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================
+   SHOW PASSWORD
+========================= */
+
+.show-password {
+    position: absolute;
+    right: 13px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--blue);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    padding: 7px;
+}
+
+.show-password:hover {
+    color: var(--dark-blue);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.login-message {
+    min-height: 20px;
+
+    margin: 2px 0 10px;
+
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-button {
+    width: 100%;
+    height: 54px;
+
+    border: none;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 30px rgba(37, 99, 235, 0.28);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.arrow {
+    font-size: 19px;
+    line-height: 0;
+    transition: transform 0.25s ease;
+}
+
+.login-button:hover .arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.portal-info {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    margin: 27px 0 20px;
+}
+
+.portal-info span {
+    height: 1px;
+    flex: 1;
+    background: #e4eaf2;
+}
+
+.portal-info p {
+    color: #8a98aa;
+    font-size: 10px;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    color: #a1acba;
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(35px, 25px);
+    }
+}
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-30px, 35px);
+    }
+}
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(25px, -25px);
+    }
+}
+
+@keyframes symbolFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-13px) rotate(5deg);
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 700px) {
+
+    .login-container {
+        padding: 30px 18px;
+    }
+
+    .login-card {
+        max-width: 430px;
+        padding: 37px 30px 27px;
+    }
+
+    .symbol-one,
+    .symbol-three {
+        opacity: 0.6;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .login-container {
+        min-height: 100svh;
+        padding: 20px 14px;
+    }
+
+    .login-card {
+        border-radius: 22px;
+        padding: 31px 22px 24px;
+    }
+
+    .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        font-size: 19px;
+    }
+
+    .logo-area {
+        margin-bottom: 28px;
+    }
+
+    .logo-area h1 {
+        font-size: 22px;
+    }
+
+    .welcome h2 {
+        font-size: 21px;
+    }
+
+    .welcome p {
+        font-size: 12px;
+    }
+
+    .input-box input {
+        height: 50px;
+    }
+
+    .login-button {
+        height: 52px;
+    }
+
+    .floating-symbol {
+        opacity: 0.08;
+    }
+
+    .shape-one {
+        width: 250px;
+        height: 250px;
+    }
+
+    .shape-two {
+        width: 220px;
+        height: 220px;
+    }
+
+    .shape-three {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL SCREENS
+========================= */
+
+@media (max-width: 350px) {
+
+    .login-card {
+        padding: 27px 17px 22px;
+    }
+
+    .portal-info p {
+        font-size: 9px;
+    }
+}
