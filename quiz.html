@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brain & Banter | Quiz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="quiz-body">
+
+    <div class="quiz-page">
+
+        <!-- TOP BAR -->
+
+        <header class="quiz-topbar">
+
+            <button
+                id="backToDashboard"
+                class="back-button"
+            >
+                ← Dashboard
+            </button>
+
+
+            <div class="quiz-brand">
+                <div class="mini-logo">
+                    B<span>&</span>B
+                </div>
+
+                <span>Brain & Banter</span>
+            </div>
+
+        </header>
+
+
+        <!-- QUIZ CONTENT -->
+
+        <main class="quiz-main">
+
+            <!-- QUIZ HEADER -->
+
+            <section class="quiz-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        KNOWLEDGE CHALLENGE
+                    </p>
+
+                    <h1 id="quizSubject">
+                        Quiz
+                    </h1>
+
+                    <p>
+                        Answer each question carefully.
+                    </p>
+
+                </div>
+
+
+                <!-- TIMER -->
+
+                <div class="timer-box">
+
+                    <span class="timer-label">
+                        TIME
+                    </span>
+
+                    <strong id="timer">
+                        05:00
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROGRESS -->
+
+            <section class="progress-section">
+
+                <div class="progress-info">
+
+                    <span>
+                        Question
+                        <strong id="currentQuestion">
+                            1
+                        </strong>
+                        of
+                        <strong id="totalQuestions">
+                            10
+                        </strong>
+                    </span>
+
+                    <span id="progressPercent">
+                        10%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progressFill"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUESTION CARD -->
+
+            <section class="question-card">
+
+                <div class="question-number">
+                    QUESTION <span id="questionNumber">01</span>
+                </div>
+
+
+                <h2 id="questionText">
+                    Loading question...
+                </h2>
+
+
+                <!-- OPTIONS -->
+
+                <div
+                    id="optionsContainer"
+                    class="options-container"
+                ></div>
+
+
+                <!-- NAVIGATION -->
+
+                <div class="quiz-navigation">
+
+                    <button
+                        id="previousButton"
+                        class="previous-button"
+                    >
+                        ← Previous
+                    </button>
+
+
+                    <button
+                        id="nextButton"
+                        class="next-button"
+                    >
+                        Next →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- EXIT -->
+
+            <button
+                id="exitQuiz"
+                class="exit-button"
+            >
+                Exit Quiz
+            </button>
+
+        </main>
+
+
+        <footer class="quiz-footer">
+            Brain & Banter • Stay curious.
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
