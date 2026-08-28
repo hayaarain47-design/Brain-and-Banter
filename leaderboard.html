@@ -12,14 +12,21 @@
 
     <title>Brain & Banter | Leaderboard</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
 
 <body class="dashboard-body">
 
+
+    <!-- TOP BAR -->
+
     <header class="topbar">
+
 
         <div class="brand-small">
 
@@ -27,9 +34,17 @@
                 B<span>&</span>B
             </div>
 
+
             <div>
-                <strong>Brain & Banter</strong>
-                <small>Quiz Portal</small>
+
+                <strong>
+                    Brain & Banter
+                </strong>
+
+                <small>
+                    Quiz Portal
+                </small>
+
             </div>
 
         </div>
@@ -46,7 +61,12 @@
 
 
 
+    <!-- MAIN -->
+
     <main class="dashboard-main">
+
+
+        <!-- HEADER BANNER -->
 
         <section class="welcome-banner">
 
@@ -56,13 +76,17 @@
                     QUIZ COMMUNITY
                 </p>
 
+
                 <h1>
                     Leaderboard
                 </h1>
 
+
                 <p class="welcome-text">
+
                     See how you and your friends performed.
-                    Keep learning, keep challenging yourself.
+                    Keep learning and keep challenging yourself.
+
                 </p>
 
             </div>
@@ -76,67 +100,145 @@
 
 
 
+        <!-- HEADING -->
+
         <div class="section-heading">
 
+
             <div>
+
                 <p class="eyebrow">
                     TOP PERFORMERS
                 </p>
 
+
                 <h2>
                     Quiz Results
                 </h2>
+
             </div>
 
+
             <p>
-                Your latest performance
+                Highest scores appear first
             </p>
 
         </div>
 
 
 
+        <!-- LEADERBOARD -->
+
         <section
             id="leaderboardContainer"
             class="leaderboard-container"
         >
 
+
+            <!-- TABLE HEADER -->
+
             <div class="leaderboard-header">
 
-                <span>Rank</span>
+                <span>
+                    Rank
+                </span>
 
-                <span>Name</span>
 
-                <span>Score</span>
+                <span>
+                    Name
+                </span>
 
-                <span>Percentage</span>
+
+                <span>
+                    Score
+                </span>
+
+
+                <span>
+                    Percentage
+                </span>
 
             </div>
 
+
+
+            <!-- RESULTS -->
 
             <div id="leaderboardList">
 
-                <!-- Results will appear here -->
+                <div class="empty-leaderboard">
+
+                    Complete a quiz to appear
+                    on the leaderboard.
+
+                </div>
 
             </div>
 
+
         </section>
+
+
+
+        <!-- BACK BUTTON -->
+
+        <div class="dashboard-actions">
+
+            <button
+                id="leaderboardDashboard"
+                class="dashboard-action-button"
+            >
+
+                <span class="action-icon">
+                    ←
+                </span>
+
+
+                <span>
+
+                    <strong>
+                        Back to Dashboard
+                    </strong>
+
+
+                    <small>
+                        Choose another quiz
+                    </small>
+
+                </span>
+
+
+                <span class="action-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
 
 
     </main>
 
 
 
+    <!-- FOOTER -->
+
     <footer class="dashboard-footer">
 
         Brain & Banter
-        <span>•</span>
+
+        <span>
+            •
+        </span>
+
         Learn. Challenge. Improve.
 
     </footer>
 
 
+
     <script src="script.js"></script>
+
 
 </body>
 
