@@ -1,193 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Brain & Banter | Quiz</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
+        href="style.css"
     >
 
-    <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body class="quiz-body">
 
-    <div class="quiz-page">
 
-        <!-- TOP BAR -->
+    <!-- TOP BAR -->
 
-        <header class="quiz-topbar">
+    <header class="quiz-topbar">
 
-            <button
-                id="backToDashboard"
-                class="back-button"
-            >
-                ← Dashboard
-            </button>
+        <button
+            id="backToDashboard"
+            class="back-button"
+        >
+            ← Dashboard
+        </button>
 
 
-            <div class="quiz-brand">
-                <div class="mini-logo">
-                    B<span>&</span>B
-                </div>
+        <div class="quiz-brand">
 
-                <span>Brain & Banter</span>
+            <div class="mini-logo">
+                B<span>&</span>B
             </div>
 
-        </header>
+            <span>
+                Brain & Banter
+            </span>
+
+        </div>
 
 
-        <!-- QUIZ CONTENT -->
+        <button
+            id="exitQuiz"
+            class="back-button"
+        >
+            Exit Quiz
+        </button>
 
-        <main class="quiz-main">
-
-            <!-- QUIZ HEADER -->
-
-            <section class="quiz-header">
-
-                <div>
-
-                    <p class="eyebrow">
-                        KNOWLEDGE CHALLENGE
-                    </p>
-
-                    <h1 id="quizSubject">
-                        Quiz
-                    </h1>
-
-                    <p>
-                        Answer each question carefully.
-                    </p>
-
-                </div>
+    </header>
 
 
-                <!-- TIMER -->
 
-                <div class="timer-box">
+    <!-- MAIN QUIZ -->
 
-                    <span class="timer-label">
-                        TIME
-                    </span>
+    <main class="quiz-main">
 
-                    <strong id="timer">
-                        05:00
+
+        <!-- QUIZ HEADER -->
+
+        <section class="quiz-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    KNOWLEDGE CHALLENGE
+                </p>
+
+                <h1 id="quizSubject">
+                    Quiz
+                </h1>
+
+                <p>
+                    Select the best answer for each question.
+                </p>
+
+            </div>
+
+
+            <div class="timer-box">
+
+                <span class="timer-label">
+                    TIME LEFT
+                </span>
+
+                <strong id="timer">
+                    05:00
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PROGRESS -->
+
+        <section class="progress-section">
+
+            <div class="progress-info">
+
+                <span>
+
+                    Question
+
+                    <strong id="currentQuestion">
+                        1
                     </strong>
 
-                </div>
+                    of
 
-            </section>
+                    <strong id="totalQuestions">
+                        10
+                    </strong>
 
-
-            <!-- PROGRESS -->
-
-            <section class="progress-section">
-
-                <div class="progress-info">
-
-                    <span>
-                        Question
-                        <strong id="currentQuestion">
-                            1
-                        </strong>
-                        of
-                        <strong id="totalQuestions">
-                            10
-                        </strong>
-                    </span>
-
-                    <span id="progressPercent">
-                        10%
-                    </span>
-
-                </div>
+                </span>
 
 
-                <div class="progress-bar">
+                <span id="progressPercent">
+                    10%
+                </span>
 
-                    <div
-                        id="progressFill"
-                        class="progress-fill"
-                    ></div>
-
-                </div>
-
-            </section>
+            </div>
 
 
-            <!-- QUESTION CARD -->
-
-            <section class="question-card">
-
-                <div class="question-number">
-                    QUESTION <span id="questionNumber">01</span>
-                </div>
-
-
-                <h2 id="questionText">
-                    Loading question...
-                </h2>
-
-
-                <!-- OPTIONS -->
+            <div class="progress-bar">
 
                 <div
-                    id="optionsContainer"
-                    class="options-container"
+                    id="progressFill"
+                    class="progress-fill"
                 ></div>
 
+            </div>
 
-                <!-- NAVIGATION -->
-
-                <div class="quiz-navigation">
-
-                    <button
-                        id="previousButton"
-                        class="previous-button"
-                    >
-                        ← Previous
-                    </button>
+        </section>
 
 
-                    <button
-                        id="nextButton"
-                        class="next-button"
-                    >
-                        Next →
-                    </button>
 
-                </div>
+        <!-- QUESTION CARD -->
 
-            </section>
+        <section class="question-card">
 
 
-            <!-- EXIT -->
-
-            <button
-                id="exitQuiz"
-                class="exit-button"
+            <div
+                id="questionNumber"
+                class="question-number"
             >
-                Exit Quiz
-            </button>
-
-        </main>
+                01
+            </div>
 
 
-        <footer class="quiz-footer">
-            Brain & Banter • Stay curious.
-        </footer>
+            <h2 id="questionText">
+                Loading question...
+            </h2>
 
-    </div>
+
+            <!-- OPTIONS -->
+
+            <div
+                id="optionsContainer"
+                class="options-container"
+            >
+            </div>
+
+
+
+            <!-- NAVIGATION -->
+
+            <div class="quiz-navigation">
+
+                <button
+                    id="previousButton"
+                    class="previous-button"
+                    disabled
+                >
+                    ← Previous
+                </button>
+
+
+                <button
+                    id="nextButton"
+                    class="next-button"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="quiz-footer">
+
+        Brain & Banter
+
+        <span>
+            •
+        </span>
+
+        Learn. Challenge. Improve.
+
+    </footer>
+
 
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
