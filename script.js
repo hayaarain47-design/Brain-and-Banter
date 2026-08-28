@@ -1465,3 +1465,26 @@ if (leaderboardButton) {
     );
 
 }
+// ==========================================
+// LEADERBOARD → DASHBOARD
+// ==========================================
+
+const leaderboardDashboard =
+    document.getElementById(
+        "leaderboardDashboard"
+    );
+
+
+if (leaderboardDashboard) {
+
+    leaderboardDashboard.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "dashboard.html";
+
+        }
+    );
+
+}
