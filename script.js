@@ -1,123 +1,131 @@
 // ==========================================
-// BRAIN & BANTER - LOGIN SYSTEM
+// BRAIN & BANTER
+// MAIN JAVASCRIPT
+// ==========================================
+
+
+// ==========================================
+// LOGIN PAGE
 // ==========================================
 
 const loginForm = document.getElementById("loginForm");
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-const togglePassword = document.getElementById("togglePassword");
-const loginMessage = document.getElementById("loginMessage");
+
+if (loginForm) {
+
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+    const loginMessage = document.getElementById("loginMessage");
 
 
-// ==========================================
-// SHOW / HIDE PASSWORD
-// ==========================================
+    // Show / Hide Password
 
-togglePassword.addEventListener("click", function () {
+    if (togglePassword) {
 
-    if (passwordInput.type === "password") {
+        togglePassword.addEventListener("click", function () {
 
-        passwordInput.type = "text";
-        togglePassword.textContent = "Hide";
+            if (passwordInput.type === "password") {
 
-    } else {
+                passwordInput.type = "text";
+                togglePassword.textContent = "Hide";
 
-        passwordInput.type = "password";
-        togglePassword.textContent = "Show";
+            } else {
 
-    }
+                passwordInput.type = "password";
+                togglePassword.textContent = "Show";
 
-});
+            }
 
-
-// ==========================================
-// LOGIN
-// ==========================================
-
-loginForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    const username = usernameInput.value.trim();
-    const password = passwordInput.value.trim();
-
-
-    // Basic validation
-
-    if (username === "") {
-
-        showMessage("Please enter your name.", "error");
-        usernameInput.focus();
-        return;
+        });
 
     }
 
 
-    if (password === "") {
+    // Login
 
-        showMessage("Please enter your password.", "error");
-        passwordInput.focus();
-        return;
+    loginForm.addEventListener("submit", function (event) {
 
-    }
+        event.preventDefault();
+
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
 
 
-    // Temporary demo login
-    // We will connect the real authentication later.
+        if (username === "") {
 
-    if (password.length < 4) {
+            showLoginMessage(
+                "Please enter your name.",
+                "error"
+            );
 
-        showMessage(
-            "Password must contain at least 4 characters.",
-            "error"
+            usernameInput.focus();
+
+            return;
+        }
+
+
+        if (password === "") {
+
+            showLoginMessage(
+                "Please enter your password.",
+                "error"
+            );
+
+            passwordInput.focus();
+
+            return;
+        }
+
+
+        if (password.length < 4) {
+
+            showLoginMessage(
+                "Password must contain at least 4 characters.",
+                "error"
+            );
+
+            passwordInput.focus();
+
+            return;
+        }
+
+
+        // Save username
+
+        localStorage.setItem(
+            "brainBanterUser",
+            username
         );
 
-        passwordInput.focus();
-        return;
 
-    }
-
-
-    // Save user information for the next pages
-
-    localStorage.setItem(
-        "brainBanterUser",
-        username
-    );
+        showLoginMessage(
+            "Login successful. Opening portal...",
+            "success"
+        );
 
 
-    showMessage(
-        "Login successful. Opening portal...",
-        "success"
-    );
+        setTimeout(function () {
+
+            window.location.href = "dashboard.html";
+
+        }, 800);
+
+    });
 
 
-    // Small delay for a smooth transition
+    function showLoginMessage(message, type) {
 
-    setTimeout(function () {
+        loginMessage.textContent = message;
 
-        window.location.href = "dashboard.html";
+        if (type === "success") {
 
-    }, 900);
+            loginMessage.style.color = "#16803c";
 
-});
+        } else {
 
+            loginMessage.style.color = "#d14343";
 
-// ==========================================
-// MESSAGE FUNCTION
-// ==========================================
-
-function showMessage(message, type) {
-
-    loginMessage.textContent = message;
-
-    if (type === "success") {
-
-        loginMessage.style.color = "#16803c";
-
-    } else {
-
-        loginMessage.style.color = "#d14343";
+        }
 
     }
 
@@ -125,17 +133,92 @@ function showMessage(message, type) {
 
 
 // ==========================================
-// REMOVE ERROR MESSAGE WHEN USER TYPES
+// DASHBOARD
 // ==========================================
 
-usernameInput.addEventListener("input", function () {
+const userName = document.getElementById("userName");
 
-    loginMessage.textContent = "";
+if (userName) {
 
-});
+    const savedUser =
+        localStorage.getItem("brainBanterUser");
 
-passwordInput.addEventListener("input", function () {
 
-    loginMessage.textContent = "";
+    // If no user is logged in,
+    // return to login page.
 
-});
+    if (!savedUser) {
+
+        window.location.href = "index.html";
+
+    } else {
+
+        userName.textContent = savedUser;
+
+    }
+
+}
+
+
+// ==========================================
+// SUBJECT CARDS
+// ==========================================
+
+const subjectCards =
+    document.querySelectorAll(".subject-card");
+
+
+if (subjectCards.length > 0) {
+
+    subjectCards.forEach(function (card) {
+
+        card.addEventListener("click", function () {
+
+            const subject =
+                card.getAttribute("data-subject");
+
+
+            // Save selected subject
+
+            localStorage.setItem(
+                "selectedSubject",
+                subject
+            );
+
+
+            // Open quiz page
+
+            window.location.href = "quiz.html";
+
+        });
+
+    });
+
+}
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+
+if (logoutButton) {
+
+    logoutButton.addEventListener("click", function () {
+
+        localStorage.removeItem(
+            "brainBanterUser"
+        );
+
+        localStorage.removeItem(
+            "selectedSubject"
+        );
+
+        window.location.href = "index.html";
+
+    });
+
+}
