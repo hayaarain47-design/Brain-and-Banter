@@ -12,21 +12,6 @@
 
     <title>Brain & Banter | Result</title>
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
     <link
         rel="stylesheet"
         href="style.css"
@@ -38,260 +23,286 @@
 <body class="result-body">
 
 
-    <div class="result-page">
+    <!-- TOP BAR -->
+
+    <header class="result-topbar">
 
 
-        <!-- TOP BAR -->
+        <div class="result-brand">
 
-        <header class="result-topbar">
+            <div class="mini-logo">
+                B<span>&</span>B
+            </div>
 
-            <div class="result-brand">
 
-                <div class="mini-logo">
-                    B<span>&</span>B
-                </div>
+            <div>
+
+                <strong>
+                    Brain & Banter
+                </strong>
+
+                <small>
+                    Quiz Portal
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="resultLogout"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+
+    <!-- RESULT -->
+
+    <main class="result-main">
+
+
+        <!-- MAIN RESULT CARD -->
+
+        <section class="result-card">
+
+
+            <div class="result-check">
+                ✓
+            </div>
+
+
+            <p class="eyebrow">
+                QUIZ COMPLETED
+            </p>
+
+
+            <h1>
+
+                Well Done,
+                <span id="resultUser">
+                    Explorer
+                </span>
+
+            </h1>
+
+
+            <p class="result-subtitle">
+
+                You completed the
+
+                <strong id="resultSubject">
+                    Quiz
+                </strong>
+
+                challenge.
+
+            </p>
+
+
+
+            <!-- SCORE -->
+
+            <div class="score-circle">
 
                 <div>
 
-                    <strong>
-                        Brain & Banter
+                    <strong id="score">
+                        0
                     </strong>
 
-                    <small>
-                        Quiz Portal
-                    </small>
+                    <span>
+                        /
+                        <span id="total">
+                            10
+                        </span>
+                    </span>
 
                 </div>
 
             </div>
 
 
-            <button
-                id="resultLogout"
-                class="logout-button"
+            <p class="score-label">
+                Your Score
+            </p>
+
+
+
+            <!-- PERCENTAGE -->
+
+            <div class="percentage-box">
+
+
+                <div class="percentage-heading">
+
+                    <span>
+                        Overall Performance
+                    </span>
+
+
+                    <strong id="percentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="percentage-bar">
+
+                    <div
+                        id="percentageFill"
+                        class="percentage-fill"
+                    ></div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="performanceMessage"
+                class="performance-message"
             >
-                Logout
-            </button>
 
-        </header>
+                Keep learning and keep challenging yourself.
 
-
-
-        <!-- RESULT CONTENT -->
-
-        <main class="result-main">
-
-
-            <section class="result-card">
-
-
-                <div class="result-check">
-
-                    ✓
-
-                </div>
-
-
-                <p class="eyebrow">
-                    QUIZ COMPLETED
-                </p>
-
-
-                <h1>
-                    Great Work,
-                    <span id="resultUser">
-                        Explorer
-                    </span>
-                </h1>
-
-
-                <p class="result-subtitle">
-
-                    You completed the
-                    <strong id="resultSubject">
-                        Quiz
-                    </strong>
-                    challenge.
-
-                </p>
+            </div>
 
 
 
-                <!-- SCORE -->
+            <!-- BUTTONS -->
 
-                <div class="score-circle">
-
-                    <div>
-
-                        <strong id="score">
-                            0
-                        </strong>
-
-                        <span>
-                            /
-                            <span id="total">
-                                10
-                            </span>
-                        </span>
-
-                    </div>
-
-                </div>
+            <div class="result-buttons">
 
 
-                <p class="score-label">
-                    Your Score
-                </p>
-
-
-
-                <!-- PERCENTAGE -->
-
-                <div class="percentage-box">
-
-                    <div class="percentage-heading">
-
-                        <span>
-                            Overall Performance
-                        </span>
-
-                        <strong id="percentage">
-                            0%
-                        </strong>
-
-                    </div>
-
-
-                    <div class="percentage-bar">
-
-                        <div
-                            id="percentageFill"
-                            class="percentage-fill"
-                        ></div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- PERFORMANCE MESSAGE -->
-
-                <div
-                    id="performanceMessage"
-                    class="performance-message"
+                <button
+                    id="retryQuiz"
+                    class="primary-result-button"
                 >
-
-                    Keep learning and keep challenging yourself.
-
-                </div>
+                    Try Again
+                </button>
 
 
-
-                <!-- BUTTONS -->
-
-                <div class="result-buttons">
-
-                    <button
-                        id="retryQuiz"
-                        class="primary-result-button"
-                    >
-                        Try Again
-                    </button>
+                <button
+                    id="resultDashboard"
+                    class="secondary-result-button"
+                >
+                    Dashboard
+                </button>
 
 
-                    <button
-                        id="resultDashboard"
-                        class="secondary-result-button"
-                    >
-                        Dashboard
-                    </button>
-
-                </div>
+            </div>
 
 
-            </section>
+        </section>
 
 
-            <!-- RESULT DETAILS -->
 
-            <section class="result-details">
+        <!-- DETAILS -->
+
+        <section class="result-details">
 
 
-                <div class="detail-box">
+            <div class="detail-box">
 
-                    <span class="detail-number">
-                        <span id="correctAnswers">
-                            0
-                        </span>
+                <span class="detail-number">
+
+                    <span id="correctAnswers">
+                        0
                     </span>
 
-                    <strong>
-                        Correct
-                    </strong>
-
-                    <small>
-                        Answers
-                    </small>
-
-                </div>
+                </span>
 
 
-                <div class="detail-box">
+                <strong>
+                    Correct
+                </strong>
 
-                    <span class="detail-number">
-                        <span id="wrongAnswers">
-                            0
-                        </span>
+
+                <small>
+                    Answers
+                </small>
+
+            </div>
+
+
+
+            <div class="detail-box">
+
+                <span class="detail-number">
+
+                    <span id="wrongAnswers">
+                        0
                     </span>
 
-                    <strong>
-                        Incorrect
-                    </strong>
-
-                    <small>
-                        Answers
-                    </small>
-
-                </div>
+                </span>
 
 
-                <div class="detail-box">
+                <strong>
+                    Incorrect
+                </strong>
 
-                    <span class="detail-number">
-                        <span id="attemptedAnswers">
-                            0
-                        </span>
+
+                <small>
+                    Answers
+                </small>
+
+            </div>
+
+
+
+            <div class="detail-box">
+
+                <span class="detail-number">
+
+                    <span id="attemptedAnswers">
+                        0
                     </span>
 
-                    <strong>
-                        Attempted
-                    </strong>
-
-                    <small>
-                        Questions
-                    </small>
-
-                </div>
+                </span>
 
 
-            </section>
+                <strong>
+                    Attempted
+                </strong>
 
 
-        </main>
+                <small>
+                    Questions
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
 
 
 
-        <footer class="result-footer">
+    <!-- FOOTER -->
 
-            Brain & Banter
-            <span>•</span>
-            Learn. Challenge. Improve.
+    <footer class="result-footer">
 
-        </footer>
+        Brain & Banter
 
+        <span>
+            •
+        </span>
 
-    </div>
+        Learn. Challenge. Improve.
+
+    </footer>
 
 
 
