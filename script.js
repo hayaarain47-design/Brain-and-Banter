@@ -1251,5 +1251,194 @@ if (exitQuiz) {
 
         }
     );
+// ==========================================
+// LEADERBOARD
+// ==========================================
 
+const leaderboardList =
+    document.getElementById(
+        "leaderboardList"
+    );
+
+
+if (leaderboardList) {
+
+    const savedUser =
+        localStorage.getItem(
+            "brainBanterUser"
+        );
+
+
+    const savedScore =
+        localStorage.getItem(
+            "quizScore"
+        );
+
+
+    const savedTotal =
+        localStorage.getItem(
+            "quizTotal"
+        );
+
+
+    const savedPercentage =
+        localStorage.getItem(
+            "quizPercentage"
+        );
+
+
+    if (
+        savedUser &&
+        savedScore !== null
+    ) {
+
+        const results =
+            JSON.parse(
+                localStorage.getItem(
+                    "brainBanterResults"
+                )
+            ) || [];
+
+
+        const existingIndex =
+            results.findIndex(
+                function (item) {
+
+                    return item.name ===
+                        savedUser;
+
+                }
+            );
+
+
+        const newResult = {
+
+            name: savedUser,
+
+            score: Number(
+                savedScore
+            ),
+
+            total: Number(
+                savedTotal
+            ) || 10,
+
+            percentage: Number(
+                savedPercentage
+            ) || 0
+
+        };
+
+
+        if (existingIndex >= 0) {
+
+            results[existingIndex] =
+                newResult;
+
+        } else {
+
+            results.push(
+                newResult
+            );
+
+        }
+
+
+        results.sort(
+            function (a, b) {
+
+                return b.percentage -
+                    a.percentage;
+
+            }
+        );
+
+
+        localStorage.setItem(
+            "brainBanterResults",
+            JSON.stringify(
+                results
+            )
+        );
+
+
+        if (results.length === 0) {
+
+            leaderboardList.innerHTML = `
+                <div class="empty-leaderboard">
+                    No quiz results yet.
+                </div>
+            `;
+
+        } else {
+
+            leaderboardList.innerHTML = "";
+
+
+            results.forEach(
+                function (result, index) {
+
+                    const row =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    row.className =
+                        "leaderboard-row";
+
+
+                    if (
+                        result.name ===
+                        savedUser
+                    ) {
+
+                        row.classList.add(
+                            "current-user-row"
+                        );
+
+                    }
+
+
+                    row.innerHTML = `
+
+                        <div class="leaderboard-rank">
+                            ${index + 1}
+                        </div>
+
+                        <div class="leaderboard-name">
+                            ${result.name}
+                        </div>
+
+                        <div class="leaderboard-score">
+                            ${result.score}/${result.total}
+                        </div>
+
+                        <div class="leaderboard-percentage">
+                            ${result.percentage}%
+                        </div>
+
+                    `;
+
+
+                    leaderboardList.appendChild(
+                        row
+                    );
+
+                }
+            );
+
+        }
+
+    } else {
+
+        leaderboardList.innerHTML = `
+            <div class="empty-leaderboard">
+                Complete a quiz to appear on the leaderboard.
+            </div>
+        `;
+
+    }
+
+}
 }
