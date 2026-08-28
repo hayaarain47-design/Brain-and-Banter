@@ -1,334 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Brain & Banter | Dashboard</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
+        href="style.css"
     >
 
-    <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body class="dashboard-body">
 
-    <div class="dashboard-page">
 
-        <!-- TOP NAVIGATION -->
+    <!-- TOP BAR -->
 
-        <header class="topbar">
+    <header class="topbar">
 
-            <div class="brand-small">
+        <div class="brand-small">
 
-                <div class="mini-logo">
-                    B<span>&</span>B
+            <div class="mini-logo">
+                B<span>&</span>B
+            </div>
+
+            <div>
+
+                <strong>
+                    Brain & Banter
+                </strong>
+
+                <small>
+                    Quiz Portal
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome-banner">
+
+            <div>
+
+                <p class="eyebrow">
+                    WELCOME BACK
+                </p>
+
+                <h1>
+                    Hello,
+                    <span id="userName">
+                        Explorer
+                    </span>
+                </h1>
+
+                <p class="welcome-text">
+
+                    Test your knowledge, challenge yourself
+                    and discover how much you know.
+
+                    Choose a subject below to begin your quiz.
+
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-icon">
+                ?
+            </div>
+
+        </section>
+
+
+
+        <!-- STATS -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    05
                 </div>
 
                 <div>
-                    <strong>Brain & Banter</strong>
-                    <small>Quiz Portal</small>
+
+                    <strong>
+                        Subjects
+                    </strong>
+
+                    <span>
+                        Available quizzes
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <button id="logoutButton" class="logout-button">
-                Logout
-            </button>
 
-        </header>
+            <div class="stat-card">
 
-
-        <!-- MAIN CONTENT -->
-
-        <main class="dashboard-main">
-
-            <!-- WELCOME -->
-
-            <section class="welcome-banner">
+                <div class="stat-icon">
+                    10
+                </div>
 
                 <div>
 
-                    <p class="eyebrow">
-                        YOUR LEARNING SPACE
-                    </p>
+                    <strong>
+                        Questions
+                    </strong>
 
-                    <h1>
-                        Welcome, <span id="userName">Explorer</span>
-                    </h1>
-
-                    <p class="welcome-text">
-                        Challenge yourself, test your knowledge,
-                        and discover how much you know.
-                    </p>
+                    <span>
+                        Per quiz
+                    </span>
 
                 </div>
 
+            </div>
 
-                <div class="dashboard-icon">
-                    <span>?</span>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    05
                 </div>
 
-            </section>
+                <div>
 
+                    <strong>
+                        Minutes
+                    </strong>
 
-            <!-- STATS -->
-
-            <section class="stats-grid">
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        05
-                    </div>
-
-                    <div>
-                        <strong>Subjects</strong>
-                        <span>Available</span>
-                    </div>
+                    <span>
+                        Quiz time
+                    </span>
 
                 </div>
 
+            </div>
 
-                <div class="stat-card">
 
-                    <div class="stat-icon">
-                        10
-                    </div>
+        </section>
 
-                    <div>
-                        <strong>Questions</strong>
-                        <span>Per Quiz</span>
-                    </div>
 
+
+        <!-- SUBJECT HEADING -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    CHOOSE YOUR CHALLENGE
+                </p>
+
+                <h2>
+                    Quiz Subjects
+                </h2>
+
+            </div>
+
+
+            <p>
+                Select any subject to begin
+            </p>
+
+        </div>
+
+
+
+        <!-- SUBJECTS -->
+
+        <section class="subjects-grid">
+
+
+            <!-- BIOLOGY -->
+
+            <button
+                class="subject-card"
+                data-subject="Biology"
+            >
+
+                <span class="subject-number">
+                    01
+                </span>
+
+
+                <div class="subject-symbol">
+                    BIO
                 </div>
 
 
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        %
-                    </div>
-
-                    <div>
-                        <strong>Track</strong>
-                        <span>Your Progress</span>
-                    </div>
-
-                </div>
-
-            </section>
+                <h3>
+                    Biology
+                </h3>
 
 
-            <!-- SUBJECTS -->
+                <p>
+                    Explore life, cells, organs
+                    and the fascinating world of biology.
+                </p>
 
-            <section class="subjects-section">
 
-                <div class="section-heading">
+                <span class="start-link">
+                    Start Quiz →
+                </span>
 
-                    <div>
+            </button>
 
-                        <p class="eyebrow">
-                            EXPLORE
-                        </p>
 
-                        <h2>
-                            Choose Your Challenge
-                        </h2>
 
-                    </div>
+            <!-- PHYSICS -->
 
-                    <p>
-                        Select a subject to begin
-                    </p>
+            <button
+                class="subject-card"
+                data-subject="Physics"
+            >
 
+                <span class="subject-number">
+                    02
+                </span>
+
+
+                <div class="subject-symbol">
+                    PHY
                 </div>
 
 
-                <div class="subjects-grid">
-
-                    <!-- BIOLOGY -->
-
-                    <button
-                        class="subject-card"
-                        data-subject="Biology"
-                    >
-
-                        <div class="subject-number">
-                            01
-                        </div>
-
-                        <div class="subject-symbol">
-                            DNA
-                        </div>
-
-                        <h3>
-                            Biology
-                        </h3>
-
-                        <p>
-                            Cells, life, human body
-                            and living organisms.
-                        </p>
-
-                        <span class="start-link">
-                            Start Quiz →
-                        </span>
-
-                    </button>
+                <h3>
+                    Physics
+                </h3>
 
 
-                    <!-- PHYSICS -->
-
-                    <button
-                        class="subject-card"
-                        data-subject="Physics"
-                    >
-
-                        <div class="subject-number">
-                            02
-                        </div>
-
-                        <div class="subject-symbol">
-                            ∑
-                        </div>
-
-                        <h3>
-                            Physics
-                        </h3>
-
-                        <p>
-                            Motion, force, energy
-                            and the physical world.
-                        </p>
-
-                        <span class="start-link">
-                            Start Quiz →
-                        </span>
-
-                    </button>
+                <p>
+                    Test your understanding of force,
+                    energy, motion and the physical world.
+                </p>
 
 
-                    <!-- MATHEMATICS -->
+                <span class="start-link">
+                    Start Quiz →
+                </span>
 
-                    <button
-                        class="subject-card"
-                        data-subject="Mathematics"
-                    >
-
-                        <div class="subject-number">
-                            03
-                        </div>
-
-                        <div class="subject-symbol">
-                            π
-                        </div>
-
-                        <h3>
-                            Mathematics
-                        </h3>
-
-                        <p>
-                            Numbers, equations,
-                            logic and problem solving.
-                        </p>
-
-                        <span class="start-link">
-                            Start Quiz →
-                        </span>
-
-                    </button>
+            </button>
 
 
-                    <!-- COMPUTER -->
 
-                    <button
-                        class="subject-card"
-                        data-subject="Computer"
-                    >
+            <!-- MATHEMATICS -->
 
-                        <div class="subject-number">
-                            04
-                        </div>
+            <button
+                class="subject-card"
+                data-subject="Mathematics"
+            >
 
-                        <div class="subject-symbol">
-                            &lt;/&gt;
-                        </div>
-
-                        <h3>
-                            Computer
-                        </h3>
-
-                        <p>
-                            Programming, technology,
-                            networks and computing.
-                        </p>
-
-                        <span class="start-link">
-                            Start Quiz →
-                        </span>
-
-                    </button>
+                <span class="subject-number">
+                    03
+                </span>
 
 
-                    <!-- GENERAL KNOWLEDGE -->
-
-                    <button
-                        class="subject-card"
-                        data-subject="General Knowledge"
-                    >
-
-                        <div class="subject-number">
-                            05
-                        </div>
-
-                        <div class="subject-symbol">
-                            ?
-                        </div>
-
-                        <h3>
-                            General Knowledge
-                        </h3>
-
-                        <p>
-                            World facts, science,
-                            history and everyday knowledge.
-                        </p>
-
-                        <span class="start-link">
-                            Start Quiz →
-                        </span>
-
-                    </button>
-
+                <div class="subject-symbol">
+                    MAT
                 </div>
 
-            </section>
 
-        </main>
+                <h3>
+                    Mathematics
+                </h3>
 
 
-        <!-- FOOTER -->
+                <p>
+                    Challenge yourself with numbers,
+                    calculations and mathematical concepts.
+                </p>
 
-        <footer class="dashboard-footer">
 
-            Brain & Banter
-            <span>•</span>
-            Learn something new every day.
+                <span class="start-link">
+                    Start Quiz →
+                </span>
 
-        </footer>
+            </button>
 
-    </div>
+
+
+            <!-- COMPUTER -->
+
+            <button
+                class="subject-card"
+                data-subject="Computer"
+            >
+
+                <span class="subject-number">
+                    04
+                </span>
+
+
+                <div class="subject-symbol">
+                    CS
+                </div>
+
+
+                <h3>
+                    Computer
+                </h3>
+
+
+                <p>
+                    Test your knowledge of computers,
+                    programming and technology.
+                </p>
+
+
+                <span class="start-link">
+                    Start Quiz →
+                </span>
+
+            </button>
+
+
+
+            <!-- GENERAL KNOWLEDGE -->
+
+            <button
+                class="subject-card"
+                data-subject="General Knowledge"
+            >
+
+                <span class="subject-number">
+                    05
+                </span>
+
+
+                <div class="subject-symbol">
+                    GK
+                </div>
+
+
+                <h3>
+                    General Knowledge
+                </h3>
+
+
+                <p>
+                    Explore interesting facts,
+                    places, science and the world around you.
+                </p>
+
+
+                <span class="start-link">
+                    Start Quiz →
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- LEADERBOARD -->
+
+        <div class="dashboard-actions">
+
+            <button
+                id="leaderboardButton"
+                class="dashboard-action-button"
+            >
+
+                <span class="action-icon">
+                    #
+                </span>
+
+
+                <span>
+
+                    <strong>
+                        View Leaderboard
+                    </strong>
+
+                    <small>
+                        See quiz rankings and scores
+                    </small>
+
+                </span>
+
+
+                <span class="action-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="dashboard-footer">
+
+        Brain & Banter
+
+        <span>
+            •
+        </span>
+
+        Learn. Challenge. Improve.
+
+    </footer>
+
 
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
